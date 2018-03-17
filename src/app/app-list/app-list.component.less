@@ -1,0 +1,28 @@
+.list_container{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center;
+    
+    .app{
+        padding: 10px;
+        box-sizing: content-box;
+        width: 30rem;
+        height: 15rem;
+        margin: 2rem;
+        font-size: 3rem;
+        text-align: center;
+        line-height: 15rem;
+        border-radius: .5rem;
+        border:gray .1rem solid;
+        transition: box-shadow .7s ,border-color 1s,font-size .7s;
+        &:hover{
+            border-color:aqua;
+            box-shadow: 0 10px 10px 2px gray;
+            cursor: pointer;
+            font-size: 3.2rem;
+        }
+    }
+}

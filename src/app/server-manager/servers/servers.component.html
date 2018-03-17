@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="left_container">
+    <div class="filter_container"><input type="text" class="filter"></div>
+    <div class="group_container">
+      <div class="group" *ngFor='let g of currentGroups'>
+        <div class="item">{{g.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
