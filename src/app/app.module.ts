@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { AppListComponent } from './app-list/app-list.component';
 import { AppRouterModule } from './/app-router.module';
 import { ServerManagerModule } from './server-manager/server-manager.module';
-
+import { HttpModule, JsonpModule } from '@angular/http';
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { ServerManagerModule } from './server-manager/server-manager.module';
   imports: [
     BrowserModule,
     AppRouterModule,
-    ServerManagerModule
+    ServerManagerModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
