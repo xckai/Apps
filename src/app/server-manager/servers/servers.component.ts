@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
 
   constructor() { }
-
+  currentGroups:any[]
   ngOnInit() {
   }
 
