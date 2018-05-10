@@ -56,6 +56,6 @@ app.post("/api/addurltask/:url",(req,res)=>{
         res.end(e)
     })
 })
-app.listen(8080,()=>{
+app.listen(80,()=>{
     console.log("server start")
 })
