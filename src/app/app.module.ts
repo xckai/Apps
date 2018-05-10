@@ -6,6 +6,7 @@ import { AppListComponent } from './app-list/app-list.component';
 import { AppRouterModule } from './/app-router.module';
 import { ServerManagerModule } from './server-manager/server-manager.module';
 import { HttpModule, JsonpModule } from '@angular/http';
+import {SearcherModule}from './searcher/searcher.module'
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
     BrowserModule,
     AppRouterModule,
     ServerManagerModule,
-    HttpModule
+    HttpModule,
+    SearcherModule
   ],
   providers: [],
   bootstrap: [AppComponent]

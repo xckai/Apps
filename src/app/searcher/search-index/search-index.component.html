@@ -1,0 +1,37 @@
+<div class="search-panal">
+  <div class="search-container">
+    <input type="text" placeholder="请输入关键字" class="search-box"[(ngModel)]="searchKey" >
+    <button (click)='onSearch()' class='search-btn'>Search</button>
+  </div>
+  <ul class='search-result' *ngIf="searchResult">
+    <li *ngFor ='let sr of searchResult'>
+          <div class="result-container">
+              <table>
+                <tr>
+                  <td>名称：</td>
+                  <td>{{sr.name}}</td>
+                </tr>
+                <tr>
+                    <td>大小：</td>
+                    <td>{{sr.size}}</td>
+                  </tr>
+                  <tr>
+                      <td>热度：</td>
+                      <td>{{sr.popular}}</td>
+                    </tr>
+                    <tr>
+                        <td>时间：</td>
+                        <td>{{sr.createTime | date:'yyyy-MM-dd HH:mm'}}</td>
+                      </tr>
+                    <tr>
+                        <td>种子：</td>
+                        <td>{{sr.infoCode}}</td>
+                    </tr>
+              </table>
+              <div class="operators">
+                <button (click)='addTask(sr)' [disabled]='sr.downloaded == true'> 开始下载 </button>
+              </div>
+          </div>
+    </li>
+  </ul>
+</div>

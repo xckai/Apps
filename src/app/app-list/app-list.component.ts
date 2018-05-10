@@ -19,7 +19,7 @@ export class AppListComponent implements OnInit {
   apps:{name:string,url?:string}[]
   ngOnInit() {
     this.apps=[]
-    this.http.get("./get_config").subscribe(r=>{
+    this.http.get("./api/get_config").subscribe(r=>{
       this.apps=r.json()
       console.log(r.json())
     })
