@@ -26,6 +26,11 @@ app.get("/api/get_config",(req,res)=>{
         url:"http://"+remote_ip+":8888",
         newWindow:true
     })
+    apps.push({
+        name:"Aria",
+        url:"http://"+remote_ip+":8123",
+        newWindow:true
+    })
     res.type('json')
     res.end(JSON.stringify(apps))
 })
