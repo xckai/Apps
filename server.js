@@ -15,20 +15,25 @@ app.get("/set_ip",(req,res)=>{
     res.end("your ip is "+ip)
 })
 app.get("/api/get_config",(req,res)=>{
+    var ip=req.ip
+    if(ip.substr(0,7)=="::ffff:"){
+        ip=ip.substr(7)
+    }
+    ip= ip==remote_ip?"192.168.50.75":remote_ip
     var apps=[]
     apps.push({
         name:"Transmission",
-        url:"http://"+remote_ip+":"+port,
+        url:"http://"+ip+":"+port,
         newWindow:true
     })
     apps.push({
         name:"Sync",
-        url:"http://"+remote_ip+":8888",
+        url:"http://"+ip+":8888",
         newWindow:true
     })
     apps.push({
         name:"Aria",
-        url:"http://"+remote_ip+":8123",
+        url:"http://"+ip+":8123",
         newWindow:true
     })
     res.type('json')
