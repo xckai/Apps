@@ -36,6 +36,11 @@ app.get("/api/get_config",(req,res)=>{
         url:"http://"+ip+":8123",
         newWindow:true
     })
+    apps.push({
+        name:"Static File Server",
+        url:"http://"+ip+":8456",
+        newWindow:true
+    })
     res.type('json')
     res.end(JSON.stringify(apps))
 })
