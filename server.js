@@ -37,7 +37,7 @@ app.get("/api/get_config",(req,res)=>{
         newWindow:true
     })
     apps.push({
-        name:"Static File Server",
+        name:"File Server",
         url:"http://"+ip+":8456",
         newWindow:true
     })
