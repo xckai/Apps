@@ -1,0 +1,9 @@
+{
+    "apps":[{
+        "name":"TEST",
+        "id":"t",
+        "status":"top",
+        "start":"top",
+        "stop":"df -h"
+    }]
+}
