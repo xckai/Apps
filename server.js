@@ -4,7 +4,7 @@ var _ = require("lodash");
 var path = require('path');
 var exec = require('child_process').exec;
 var app= express();
-var PORT=80;
+var PORT=8000;
 log4js.configure({
       appenders: {
         out: { type: 'stdout' },
@@ -49,9 +49,12 @@ app.get("/api/status/:app",(req,res)=>{
         exec(app_config.status,{encoding:'utf-8'},(err,out)=>{
             if(err){
                 logger.error("应用调用错误:"+app+"----"+_.toString(err))
+                res.status(500).send({id:app,code:1,exec:_.toString(err)})
+            }else{
+                res.status(200).send({id:app,exec:out,code:0})
             }
-         
-            res.status(200).send({id:app,exec:out,code:0})
+                
+
         })
     }else{
         res.status(500).send({id:app,error:'应用不存在',code:0})
@@ -65,9 +68,10 @@ app.post('/api/start/:app',(req,res)=>{
         exec(app_config.start,{encoding:'utf-8'},(err,out)=>{
             if(err){
                 logger.error("应用启动错误;"+app+'----'+_.toString(err))
+                res.status(500).send(app_config.start+"\\n"+_.toString(err));
+            }else{
+                res.status(200).send(app_config.start+"\\n"+out);
             }
-          
-            res.status(200).send(out);
         })
     }else{
         res.status(500).send({error:"应用不存在"});
@@ -81,9 +85,10 @@ app.post('/api/stop/:app',(req,res)=>{
         exec(app_config.stop,{encoding:'utf-8'},(err,out)=>{
             if(err){
                 logger.error("应用关闭错误;"+app+'----'+_.toString(err))
+                res.status(500).send(app_config.stop+'\\n'+_.toString(err));
+            }else{
+                res.status(200).send(app_config.stop+"\\n"+out);
             }
-           
-            res.status(200).send(out);
         })
     }else{
         res.status(500).send({error:"应用不存在"});
