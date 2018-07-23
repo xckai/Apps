@@ -48,3 +48,12 @@
 
 [2018-07-23T16:29:10.002] [ERROR] default - 应用调用错误:amule----Error: Command failed: pgrep amule
 
+[2018-07-23T16:35:28.303] [INFO] default - 服务器监听端口：80
+[2018-07-23T16:35:37.928] [ERROR] default - 应用调用错误:sync----Error: Command failed: pgrep rslsync
+
+[2018-07-23T16:35:38.330] [ERROR] default - 应用调用错误:aria----Error: Command failed: pgrep aria
+
+[2018-07-23T16:35:38.828] [ERROR] default - 应用调用错误:static-file----Error: Command failed: pgrep nginx
+
+[2018-07-23T16:35:39.328] [ERROR] default - 应用调用错误:amule----Error: Command failed: pgrep amule
+

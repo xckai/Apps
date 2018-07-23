@@ -4,7 +4,7 @@ var _ = require("lodash");
 var path = require('path');
 var exec = require('child_process').exec;
 var app= express();
-var PORT=8080;
+var PORT=80;
 log4js.configure({
       appenders: {
         out: { type: 'stdout' },
@@ -35,7 +35,7 @@ catch (error){
 app.listen(PORT,()=>{
     logger.info("服务器监听端口："+PORT)
 })
-
+app.use(express.static("dist"))
 app.get("/api/apps",(req,res)=>{
     res.type("json")
     res.end(JSON.stringify(_.map(config.apps,(m)=>{
