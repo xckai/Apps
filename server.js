@@ -32,7 +32,7 @@ try{
 catch (error){
     logger.error("无法读取配置文件")
 }
-app.listen(PORT,()=>{
+app.listen(PORT,'0.0.0.0',()=>{
     logger.info("服务器监听端口："+PORT)
 })
 app.use(express.static("dist"))
