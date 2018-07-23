@@ -39,28 +39,28 @@ app.listen(PORT,()=>{
 app.get("/api/apps",(req,res)=>{
     res.type("json")
     res.end(JSON.stringify(_.map(config.apps,(m)=>{
-        return {name:m.name,id:m.id}
+        return m
     })))
 })
 app.get("/api/status/:app",(req,res)=>{
     var app=req.params.app;
-    var app_config=_.find(config.apps,app)
+    var app_config=_.find(config.apps,{id:app})
     if(app_config){
         exec(app_config.status,{encoding:'utf-8'},(err,out)=>{
             if(err){
                 logger.error("应用调用错误:"+app+"----"+_.toString(err))
             }
          
-            res.status(200).send(关闭t)
+            res.status(200).send({id:app,exec:out,code:0})
         })
     }else{
-        res.status(500).send({error:"应用不存在"})
+        res.status(500).send({id:app,error:'应用不存在',code:0})
         logger.error("应用未配置:"+app)
     }
 })
 app.post('/api/start/:app',(req,res)=>{
     var app=req.params.app;
-    var app_config=_.find(config.apps,app)
+    var app_config=_.find(config.apps,{id:app})
     if(app_config){
         exec(app_config.start,{encoding:'utf-8'},(err,out)=>{
             if(err){
@@ -76,7 +76,7 @@ app.post('/api/start/:app',(req,res)=>{
 })
 app.post('/api/stop/:app',(req,res)=>{
     var app=req.params.app;
-    var app_config=_.find(config.apps,app)
+    var app_config=_.find(config.apps,{id:app})
     if(app_config){
         exec(app_config.stop,{encoding:'utf-8'},(err,out)=>{
             if(err){
