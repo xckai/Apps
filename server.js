@@ -99,6 +99,8 @@ app.post('/api/stop/:app',(req,res)=>{
 app.get('/cookies',(req,res)=>{
     res.setHeader("Set-Cookie","GUID_8888=xaFHnqSyfJSpLLTCvzhW; path=/")
     res.setHeader('Cache-Control',"no-cache")
+    res.removeHeader('X-Powered-By');
+    res.removeHeader('Date');
     res.status(200).send("ok");
 })
 
