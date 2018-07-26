@@ -4,7 +4,7 @@ var _ = require("lodash");
 var path = require('path');
 var exec = require('child_process').exec;
 var app= express();
-var PORT=80;
+var PORT=8666;
 log4js.configure({
       appenders: {
         out: { type: 'stdout' },
@@ -90,7 +90,10 @@ app.post('/api/stop/:app',(req,res)=>{
         logger.error("应用未配置:"+app);
     }
 })
-
+app.get('/cookies',(req,res)=>{
+    res.setHeader("Set-Cookie","GUID_8888=xaFHnqSyfJSpLLTCvzhW; path=/")
+    res.status(200).send("ok");
+})
 
 
 
