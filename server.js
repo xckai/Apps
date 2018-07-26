@@ -4,11 +4,7 @@ var _ = require("lodash");
 var path = require('path');
 var exec = require('child_process').exec;
 var app= express();
-<<<<<<< HEAD
 var PORT=8666;
-=======
-var PORT=8000;
->>>>>>> e6ba1e4df32cd1b1da9164888722577db1dbbe49
 log4js.configure({
       appenders: {
         out: { type: 'stdout' },
