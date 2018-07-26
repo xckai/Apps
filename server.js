@@ -5,6 +5,7 @@ var path = require('path');
 var exec = require('child_process').exec;
 var app= express();
 var PORT=8666;
+app.set('etag', false);
 log4js.configure({
       appenders: {
         out: { type: 'stdout' },
