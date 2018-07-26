@@ -4,8 +4,8 @@ var _ = require("lodash");
 var path = require('path');
 var exec = require('child_process').exec;
 var app= express();
-var PORT=8666;
-app.set('etag', false);
+var PORT=80;
+//app.set('etag', false);
 log4js.configure({
       appenders: {
         out: { type: 'stdout' },
@@ -96,13 +96,13 @@ app.post('/api/stop/:app',(req,res)=>{
         logger.error("应用未配置:"+app);
     }
 })
-app.get('/cookies',(req,res)=>{
-    res.setHeader("Set-Cookie","GUID_8888=xaFHnqSyfJSpLLTCvzhW; path=/")
-    res.setHeader('Cache-Control',"no-cache")
-    res.removeHeader('X-Powered-By');
-    res.removeHeader('Date');
-    res.status(200).send("ok");
-})
+// app.get('/cookies',(req,res)=>{
+//     res.setHeader("Set-Cookie","GUID_8888=xaFHnqSyfJSpLLTCvzhW; path=/")
+//     res.setHeader('Cache-Control',"no-cache")
+//     res.removeHeader('X-Powered-By');
+//     res.removeHeader('Date');
+//     res.status(200).send("ok");
+// })
 
 
 
