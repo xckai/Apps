@@ -10,6 +10,11 @@ export interface IApp{
   url:string,
   status?:string
 }
+const hostname=window.location.hostname
+const port= window.location.port
+function PaserUrl(url:string){
+     return _(url).replace('{hostname}',hostname).replace('{port}',port)
+}
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -25,8 +30,17 @@ export class ListComponent implements OnInit {
   modalText:string
   modal:NgbModalRef
   ngOnInit() {
-    this.http.get("./api/apps").subscribe(r=>{
-      this.apps=r.json()
+    this.http.get("./api/apps").subscribe(rs=>{
+      this.apps=_(rs.json()).map(r=>{
+        return{
+          name:r.name,
+          newWindow:r.newWindow,
+          url:PaserUrl(r.url),
+          id:r.id,
+          status:r.status
+        }
+      }).value()
+      console.log(this.apps)
   
       _.each(this.apps,(v,i)=>{
         _.delay(()=>{
