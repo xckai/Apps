@@ -3,16 +3,16 @@
         "name":"Sync",
         "id":"sync",
         "status":"pgrep rslsync",
-        "start":"/home/pi/rslsync --webui.listen  0.0.0.0:8888",
-        "stop":"pgrep rslsync |xargs kill -9",
+        "start":"sudo service resilio-sync start ",
+        "stop":"sudo service resilio-sync stop ",
         "newWindow":true,
         "url":"http://{hostname}:8888"
     },{
         "name":"Aria",
         "id":"aria",
         "status":"pgrep aria",
-        "start":"aria2c -D --conf-path=/home/pi/.aria2/aria2.conf",
-        "stop":"pgrep aria |xargs kill -9",
+        "start":"/usr/bin/aria2c -D --conf-path=/home/pi/.aria2/aria2.conf",
+        "stop":"pgrep aria |xargs kill -9 ",
         "newWindow":true,
         "url":"https://{hostname}:8123/"
     },
